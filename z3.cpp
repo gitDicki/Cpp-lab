@@ -25,5 +25,11 @@ int main() {
 
     std::cout << "Введите число x: ";
     std::cin >> x;
-    std::cout << listNums(x);
+
+    if (std::cin.fail()) {
+        std::cout << "Неправильные входные данные.";
+  }
+    else {
+        std::cout << listNums(x);
+    }
 }
