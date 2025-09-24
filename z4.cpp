@@ -20,16 +20,31 @@ int main() {
     std::cout << "Введите размер массива: ";
     std::cin >> size;
 
-    int arr[size];
-
-    std::cout << "Введите элементы массива" << std::endl;
-    for (int i = 0; i < size; i++) {
-        std::cout << "Введите число: ";
-        std::cin >> arr[i];
+    if (std::cin.fail()) {
+        std::cout << "Неправильные входные данные.";
     }
 
-    std::cout << "Введите число x: ";
-    std::cin >> x;
+    else {
 
-    std::cout << findFirst(arr, size, x);
+        int arr[size];
+        bool flag = true;
+
+        std::cout << "Введите элементы массива" << std::endl;
+        for (int i = 0; i < size; i++) {
+            std::cout << "Введите число: ";
+            std::cin >> arr[i];
+
+            if (std::cin.fail()) {
+                std::cout << "Неправильные входные данные.";
+                flag = false;
+                break;
+            }
+        }
+
+        if (flag) {
+            std::cout << "Введите число x: ";
+            std::cin >> x;
+            std::cout << findFirst(arr, size, x);
+        }
+    }
 }
