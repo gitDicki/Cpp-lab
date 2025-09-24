@@ -13,5 +13,11 @@ int main() {
 
     std::cout << "Введите вещественное число x: ";
     std::cin >> x;
-    std::cout << "Число без целой части: " << fraction(x);
+
+    if (std::cin.fail()) {
+        std::cout << "Неправильные входные данные.";
+    }
+    else {
+        std::cout << "Число без целой части: " << fraction(x);
+    }
 }
